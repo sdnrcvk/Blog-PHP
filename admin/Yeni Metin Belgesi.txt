@@ -1,0 +1,4 @@
+yazılar/kategoriler ilişkisel olacak
+site ayarları
+adminler
+
