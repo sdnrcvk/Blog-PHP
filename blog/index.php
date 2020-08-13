@@ -565,56 +565,29 @@ include "includes/header.php";
         </div>
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate">
+		  <?php $articles=$db->prepare("SELECT * FROM yazilar INNER JOIN kategoriler ON kategoriler.kategori_id=yazilar.yazi_kategori_id ORDER BY yazi_id DESC");
+          $articles->execute();
+          $check_articles=$articles->fetchAll(PDO::FETCH_ASSOC);
+          foreach($check_articles as $row){ ?>
+
           	<div class="blog-entry justify-content-end">
-              <a href="single.php" class="block-20" style="background-image: url('images/image_1.jpg');">
+              <a href="single.php" title="<?php echo $row['yazi_title'];?>" class="block-20" alt="<?php echo $row['yazi_title'];?>" style="background-image: url('images/<?php echo $row['yazi_foto'];?>');">
               </a>
               <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="single.php">Technology</a></h3>
+                <h3 class="heading"><a href="single.php" title="<?php echo $row['yazi_title'];?>"><?php echo $row['yazi_title'];?></a></h3>
                 <div class="d-flex align-items-center mb-3 meta">
 	                <p class="mb-0">
-	                	<span class="mr-2">June 12, 2020</span>
-	                 <a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+	                	
+					<a href="list_categories.php" class="mr-2" title="<?php echo $row['kategori_title'];?>"><?php echo $row['kategori_title'];?></a>
+					<a href="#" class="meta-eye"><span class="icon-eye"></span><?php echo $row['yazi_okunma'];?></a>
+					<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a><br>
+					<a href="#" class="mr-2" title="<?php echo $row['yazi_yazan'];?>"><?php echo $row['yazi_yazan'];?></a><br>
+					<span class="mr-2"><?php echo $row['yazi_tarih'];?></span>
 	                </p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="single.php" class="block-20" style="background-image: url('images/image_2.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="single.php">Computer Engineering</a></h3>
-                <div class="d-flex align-items-center mb-3 meta">
-	                <p class="mb-0">
-	                	<span class="mr-2">June 12, 2020</span>
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry">
-              <a href="single.php" class="block-20" style="background-image: url('images/image_3.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="single.php">Software/Hardware</a></h3>
-                <div class="d-flex align-items-center mb-3 meta">
-	                <p class="mb-0">
-	                	<span class="mr-2">June 12, 2019</span>
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+		  </div> <?php } ?>
 
     <section class="ftco-section ftco-hireme img" style="background-image: url(images/bg_1.jpg)">
     	<div class="overlay"></div>
@@ -626,7 +599,7 @@ include "includes/header.php";
 					</div>
 				</div>
 			</div>
-		</section>-->
+		</section>
 
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
@@ -710,8 +683,7 @@ include "includes/header.php";
         </div>
       </div>
     </section>
-		
-<?php
-include "includes/footer.php";
+	
+<?php 
+   include "includes/footer.php";
 ?>
-   
