@@ -15,8 +15,8 @@ $check_categories=$categories->fetch(PDO::FETCH_ASSOC);
      
       <div class="post-text">
       <div class="row d-flex">
-			<?php $articles=$db->prepare("SELECT * FROM yazilar INNER JOIN kategoriler ON kategoriler.kategori_id=yazilar.yazi_kategori_id WHERE yazi_kategori_id=? ORDER BY yazi_id DESC");
-			$articles->execute(array($kategori_id));
+			<?php $articles=$db->prepare("SELECT * FROM yazilar INNER JOIN kategoriler ON kategoriler.kategori_id=yazilar.yazi_kategori_id ORDER BY yazi_id DESC");
+			$articles->execute();
 			$check_articles=$articles->fetchAll(PDO::FETCH_ASSOC);
 			foreach($check_articles as $row){ ?>
 			<div class="col-md-4 d-flex ftco-animate">      

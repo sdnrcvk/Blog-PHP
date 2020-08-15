@@ -9468,18 +9468,6 @@ textarea.form-control {
       margin: 0 10px;
       opacity: .5; }
 
-.tagcloud a {
-  text-transform: uppercase;
-  display: inline-block;
-  padding: 4px 10px;
-  margin-bottom: 7px;
-  margin-right: 4px;
-  border-radius: 4px;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 11px; }
-  .tagcloud a:hover {
-    border: 1px solid #000; }
 
 .comment-form-wrap {
   clear: both; }
