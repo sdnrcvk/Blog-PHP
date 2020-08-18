@@ -21,7 +21,7 @@ $check_categories=$categories->fetch(PDO::FETCH_ASSOC);
 			foreach($check_articles as $row){ ?>
 			<div class="col-md-4 d-flex ftco-animate">      
 				<div class="blog-entry justify-content-end">
-					<a href="single.php?yazi_id=<?php echo $row['yazi_id'];?>" title="<?php echo $row['yazi_title'];?>" class="block-20" alt="<?php echo $row['yazi_title'];?>" style="background-image: url('images/<?php echo $row['yazi_foto'];?>');"></a>
+					<a href="single.php?yazi_id=<?php echo $row['yazi_id'];?>&kategori_id=<?php echo $row['kategori_id'];?>" title="<?php echo $row['yazi_title'];?>" class="block-20" alt="<?php echo $row['yazi_title'];?>" style="background-image: url('images/<?php echo $row['yazi_foto'];?>');"></a>
 					<div class="text mt-3 float-right d-block">
 						<h3 class="heading"><a href="single.php" title="<?php echo $row['yazi_title'];?>"><?php echo $row['yazi_title'];?></a></h3>
 						<div class="d-flex align-items-center mb-3 meta">
