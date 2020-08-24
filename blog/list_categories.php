@@ -15,7 +15,17 @@ $check_categories=$categories->fetch(PDO::FETCH_ASSOC);
      
       <div class="post-text">
       <div class="row d-flex">
-			<?php $articles=$db->prepare("SELECT * FROM yazilar INNER JOIN kategoriler ON kategoriler.kategori_id=yazilar.yazi_kategori_id WHERE yazi_kategori_id=? ORDER BY yazi_id DESC");
+			<?php 
+			
+			$sayfa=intval($_GET['sayfa']); if(!$sayfa || $sayfa<1){$sayfa=1;}
+			$yazi_say=$db->query("SELECT * FROM yazilar WHERE yazi_kategori_id=".$kategori_id);
+			$toplam_yazi=$yazi_say->rowCount();
+			$limit=1;
+			$sayfa_sayisi=ceil($toplam_yazi/$limit); if($sayfa>$sayfa_sayisi){$sayfa=$sayfa_sayisi;}
+			$göster=$sayfa*$limit-$limit;
+			$görünen_sayfa=2;
+			
+			$articles=$db->prepare("SELECT * FROM yazilar INNER JOIN kategoriler ON kategoriler.kategori_id=yazilar.yazi_kategori_id WHERE yazi_kategori_id=? ORDER BY yazi_id DESC LIMIT $göster,$limit");
 			$articles->execute(array($kategori_id));
 			$check_articles=$articles->fetchAll(PDO::FETCH_ASSOC);
 			foreach($check_articles as $row){ ?>
@@ -37,7 +47,35 @@ $check_categories=$categories->fetch(PDO::FETCH_ASSOC);
 				</div>
 			</div> <?php } ?>
 		</div>
-      </div>
+</div>	
+
+<div class="penci-pagination align-center">
+	<ul class="page-numbers">
+		<?php
+		if($sayfa>1){
+		?>
+			<li><a class="page-numbers" href="list_categories.php?kategori_id=<?php echo $kategori_id;?>&sayfa=1"> << İlk</a></li>
+			<li><a class="page-numbers" href="list_categories.php?kategori_id=<?php echo $kategori_id;?>&sayfa=<?php echo $sayfa-1 ?>"> < ÖNCEKİ</a></li>
+		<?php } ?>
+		<?php for($i=$sayfa-$görünen_sayfa;$i<$sayfa+$görünen_sayfa+1;$i++){
+			if($i>0 && $i <= $sayfa_sayisi){
+				if($i==$sayfa){
+					echo '<li><a class="page-numbers" style ="background-color:#42ade7; color:white;">'.$i.' </a></li>';
+				}else{
+					echo '<li><a class="page-numbers" href="list_categories.php?kategori_id='.$kategori_id.'&sayfa='.$i.'">'.$i.'</a></li>';
+				}
+			}
+		}
+			?>
+
+		<?php if($sayfa!= $sayfa_sayisi){	?> 
+			<li><a class="next page-numbers" href="list_categories.php?kategori_id=<?php echo $kategori_id;?>&sayfa=<?php echo $sayfa+1 ?>">SONRAKİ ></a></li>
+			<li><a class="page-numbers" href="list_categories.php?kategori_id=<?php echo $kategori_id;?>&sayfa=<?php echo $sayfa_sayisi ?>">SON >></a></li>
+		<?php } ?>
+			</ul>
+</div>
+
+
 
 <?php 
    include "includes/sidebar.php";

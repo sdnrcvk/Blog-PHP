@@ -22,7 +22,7 @@
             $check_articles=$articles->fetchAll(PDO::FETCH_ASSOC);
             $count_articles=$articles->rowCount(); ?>
 
-                <li><a href="list_categories.php?kategori_id=<?php echo $row['kategori_id'];?>"><?php echo $row['kategori_title'];?><span><?php echo $count_articles;?></span></a></li>
+                <li><a href="list_categories.php?kategori_id=<?php echo $row['kategori_id'];?>&sayfa=<?php echo $row['kategori_url'];?>"><?php echo $row['kategori_title'];?><span><?php echo $count_articles;?></span></a></li>
             <?php } ?>
               </ul>
             </div>

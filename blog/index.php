@@ -2,6 +2,21 @@
 
 include "includes/header.php";
 
+if(isset($_POST['send_message'])){
+    if(!empty($_POST['name'])){
+    $name=$_POST['name'];
+        if(!empty($_POST['email'])){
+            $email=$_POST['email'];
+            if(!empty($_POST['message'])){
+                $subject=$_POST['subject'];
+                $message=$_POST['message'];
+
+                $s_message=$db->prepare("INSERT INTO mesajlar (mesaj_gonderenisim, mesaj_gonderenmail, mesaj_konu, mesaj_aciklama) VALUES (?,?,?,?)");
+                $s_message=$s_message->execute(array($name,$email,$subject,$message));
+          }
+      }
+  }
+}
 ?>
 <section class="hero-wrap js-fullheight">
 	<div class="overlay"></div>
@@ -438,7 +453,8 @@ include "includes/header.php";
 			</div>
 		</div>
 		<div class="row d-flex">
-			<?php $articles=$db->prepare("SELECT * FROM yazilar INNER JOIN kategoriler ON kategoriler.kategori_id=yazilar.yazi_kategori_id ORDER BY yazi_id DESC");
+			<?php
+			$articles=$db->prepare("SELECT * FROM yazilar INNER JOIN kategoriler ON kategoriler.kategori_id=yazilar.yazi_kategori_id ORDER BY yazi_id DESC LIMIT 3");
 			$articles->execute();
 			$check_articles=$articles->fetchAll(PDO::FETCH_ASSOC);
 			foreach($check_articles as $row){ ?>
@@ -519,21 +535,21 @@ include "includes/header.php";
 
 	<div class="row no-gutters block-9">
 		<div class="col-md-6 order-md-last d-flex">
-		<form action="#" class="bg-light p-4 p-md-5 contact-form">
+		<form action="#" method="post" class="bg-light p-4 p-md-5 contact-form">
 			<div class="form-group">
-			<input type="text" class="form-control" placeholder="Your Name">
+			<input type="text" class="form-control"  name="name" placeholder="Your Name" required>
 			</div>
 			<div class="form-group">
-			<input type="text" class="form-control" placeholder="Your Email">
+			<input type="text" class="form-control" name="email" placeholder="Your Email" required>
 			</div>
 			<div class="form-group">
-			<input type="text" class="form-control" placeholder="Subject">
+			<input type="text" class="form-control" name ="subject" placeholder="Subject" >
 			</div>
 			<div class="form-group">
-			<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+			<textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
 			</div>
 			<div class="form-group">
-			<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+			<input type="submit" value="Send Message" name="send_message" class="btn btn-primary py-3 px-5">
 			</div>
 		</form>
 		
