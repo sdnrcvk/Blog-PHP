@@ -15,6 +15,7 @@
                 <li class="ftco-animate"><a href="<?php echo $check_settings['site_twitter'];?>"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="<?php echo $check_settings['site_linkedin'];?>"><span class="icon-linkedin"></span></a></li>
                 <li class="ftco-animate"><a href="<?php echo $check_settings['site_instagram'];?>"><span class="icon-instagram"></span></a></li>
+                <li class="ftco-animate"><a href="<?php echo $check_settings['site_github'];?>"><span class="icon-github"></span></a></li>
               </ul>
             </div>
           </div>

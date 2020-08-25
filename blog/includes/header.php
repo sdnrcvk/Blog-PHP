@@ -17,7 +17,7 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
     <meta name="keywords" content="<?php echo $check_settings['site_keyw'];?>">
     <meta name="author" content="Sedanur Çevik">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
+    <link rel="Shortcut Icon" href="../blog/images/<?php echo $check_settings['site_favicon'];?>">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     

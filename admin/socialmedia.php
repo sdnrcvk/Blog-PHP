@@ -70,9 +70,9 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
     <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">
-                <a href="genelayarlar.php" class="nav-link">
-                  <i class="nav-icon fas fa-cog fa-fw "></i>
-                  Genel Ayarlar
+                <a href="socialmedia.php" class="nav-link">
+                  <i class="nav-icon fab fa-slack"></i>
+                  Sosyal Medya Link Ayarları
                 </a>
                 </h3>
               </div>
@@ -82,26 +82,26 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
               <!-- form start -->
               <form action="process.php" method="post">
                 <div class="card-body">
-                    <div class="form-group">
-                        <label>Site Url</label>
-                        <input type="text" class="form-control" name="site_url" value="<?php echo $check_settings['site_url'];?>" placeholder="Enter ...">
-                    </div>
-                    <div class="form-group">
-                        <label>Site Title</label>
-                        <input type="text" class="form-control"  name="site_title" value="<?php echo $check_settings['site_title'];?>" placeholder="Enter ...">
-                    </div>
-                    <div class="form-group">
-                        <label>Site Description</label>
-                        <input type="text" class="form-control"  name="site_desc" value="<?php echo $check_settings['site_desc'];?>" placeholder="Enter ...">
-                    </div>
-                    <div class="form-group">
-                        <label>Site Keywords</label>
-                        <input type="text" class="form-control"  name="site_keyw" value="<?php echo $check_settings['site_keyw'];?>" placeholder="Enter ...">
-                    </div>
+                    <a class="btn btn-block btn-social btn-twitter">
+                    <label>Twitter</label>
+                        <i class="fab fa-twitter"></i><input type="text" value="<?php echo $check_settings['site_twitter'];?>" name="site_twitter" placeholder="Enter ..." class="form-control">
+                    </a>
+                    <a class="btn btn-block btn-social btn-linkedin">
+                    <label>Linkedin</label>
+                        <i class="fab fa-linkedin"></i><input type="text" value="<?php echo $check_settings['site_linkedin'];?>" name="site_linkedin" placeholder="Enter ..." class="form-control">
+                    </a>
+                    <a class="btn btn-block btn-social btn-instagram">
+                    <label>İnstagram</label>
+                        <i class="fab fa-instagram"></i><input type="text" value="<?php echo $check_settings['site_instagram'];?>" name="site_instagram" placeholder="Enter ..." class="form-control">
+                    </a>
+                    <a class="btn btn-block btn-social btn-github">
+                    <label>Github</label>
+                        <i class="fab fa-github"></i><input type="text" value="<?php echo $check_settings['site_github'];?>" name="site_github" placeholder="Enter ..." class="form-control">
+                    </a>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit"  name="genel_ayarlar" class="btn btn-primary">Güncelle</button>
+                  <button type="submit"  name="sosyal_medya" class="btn btn-primary">Güncelle</button>
                 </div>
               </form>
             </div>
@@ -111,11 +111,6 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-
-
-
-
 
 
 <?php

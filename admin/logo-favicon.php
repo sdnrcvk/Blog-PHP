@@ -62,6 +62,18 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
             <h5><i class="icon fas fa-check"></i> Tebrikler!</h5>
             Güncelleme işlemi başarıyla yapıldı...
         </div>
+        <?php }elseif($update=="gecersizuzanti"){ ?>
+          <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Dikkat!</h5>
+            Sadece JPG,PNG ve JPEG uzantılı resimleri yükleyebilirsiniz...
+        </div>
+        <?php }elseif($update=="buyuk"){ ?>
+          <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Dikkat!</h5>
+             En fazla 1 MB büyüklüğünde resim yükleyebilirsiniz...
+        </div>
         <?php } ?>
     </section>
     
@@ -71,8 +83,8 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
               <div class="card-header">
                 <h3 class="card-title">
                 <a href="genelayarlar.php" class="nav-link">
-                  <i class="nav-icon fas fa-cog fa-fw "></i>
-                  Genel Ayarlar
+                  <i class="nav-icon fas fa-smile"></i>
+                  Logo Düzenle
                 </a>
                 </h3>
               </div>
@@ -80,31 +92,57 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
 
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="process.php" method="post">
+              <form action="process.php" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Site Url</label>
-                        <input type="text" class="form-control" name="site_url" value="<?php echo $check_settings['site_url'];?>" placeholder="Enter ...">
+                        <label>Şuanki Logo</label><br>
+                       <img src="../blog/images/<?php echo $check_settings['site_logo'];?>" alt="Sedanur Çevik" class="img-responsive" width="5%" height="5%">
                     </div>
                     <div class="form-group">
-                        <label>Site Title</label>
-                        <input type="text" class="form-control"  name="site_title" value="<?php echo $check_settings['site_title'];?>" placeholder="Enter ...">
-                    </div>
-                    <div class="form-group">
-                        <label>Site Description</label>
-                        <input type="text" class="form-control"  name="site_desc" value="<?php echo $check_settings['site_desc'];?>" placeholder="Enter ...">
-                    </div>
-                    <div class="form-group">
-                        <label>Site Keywords</label>
-                        <input type="text" class="form-control"  name="site_keyw" value="<?php echo $check_settings['site_keyw'];?>" placeholder="Enter ...">
+                        <label>Site Logo</label>
+                        <input type="file" class="form-control" value="<?php echo $check_settings['site_logo'];?>"name="site_logo" >
                     </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
-                  <button type="submit"  name="genel_ayarlar" class="btn btn-primary">Güncelle</button>
+                  <button type="submit"  name="logo_düzenle" class="btn btn-primary">Güncelle</button>
                 </div>
               </form>
             </div>
+            
+            <!-- /.card -->
+
+    </section>
+    <section class="content">
+    <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">
+                <a href="genelayarlar.php" class="nav-link">
+                  <i class="nav-icon fas fa-smile"></i>
+                  Favicon Düzenle
+                </a>
+                </h3>
+              </div>
+              
+
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form action="process.php" method="post" enctype="multipart/form-data">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Şuanki Favicon</label><br>
+                       <img src="../blog/images/<?php echo $check_settings['site_favicon'];?>" alt="Sedanur Çevik" class="img-responsive" width="5%" height="5%">
+                    </div>
+                    <div class="form-group">
+                        <label>Site Favicon</label>
+                        <input type="file" class="form-control" value="<?php echo $check_settings['site_favicon'];?>"name="site_favicon" >
+                    </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit"  name="favicon_düzenle" class="btn btn-primary">Güncelle</button>
+                </div>
+              </form>
+            </div>
+            
             <!-- /.card -->
 
     </section>

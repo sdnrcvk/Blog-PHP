@@ -131,13 +131,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="socialmedia.php" class="nav-link">
                   <i class="nav-icon fab fa-slack"></i>
                   <p>Sosyal Medya</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href="logo-favicon.php" class="nav-link">
                   <i class="nav-icon fas fa-smile"></i>
                   <p>Logo & Favicon</p>
                 </a>
