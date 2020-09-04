@@ -90,11 +90,33 @@ foreach($comment as $row){ ?>
       <h3><?php echo $row['yorum_yapan']; ?></h3>
       <div class="meta"><?php echo $row['yorum_tarih']; ?></div>
       <p><?php echo $row['yorum_icerik']; ?></p>
-      <p><a href="#" class="reply">Reply</a></p>
     </div>
-</li> <?php }  }else{
-                echo "<b>Bu yazıya henüz yorum yapılmadı!</b>";
-            }?>
+</li> 
+<?php 
+$cevaplar=$db->prepare("SELECT * FROM yorumlar WHERE yorum_ust=?");
+$cevaplar->execute(array($row['yorum_id']));
+$cevapcek=$cevaplar->fetchAll(PDO::FETCH_ASSOC);
+foreach($cevapcek as $c_cek){ ?>
+
+  <ul class="children">
+    <li class="comment">
+      <div class="vcard bio">
+        <img src="images/person_1.jpg" alt="Image placeholder">
+      </div>
+      <div class="comment-body">
+        <h3><?php echo $c_cek['yorum_yapan']; ?></h3>
+        <div class="meta"><?php echo $c_cek['yorum_tarih']; ?></div>
+        <p><?php echo $c_cek['yorum_icerik']; ?></p>
+      </div>
+    </li>
+  <?php } ?>
+  </ul>
+</div>
+  <?php }  
+      }else{
+        echo "<b>Bu yazıya henüz yorum yapılmadı!</b>";
+      }?>
+
 
 
   <!-- END comment-list -->

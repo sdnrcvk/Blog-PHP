@@ -12,14 +12,12 @@ header("location: login.php");
 
 include("includes/header.php"); ?>
 <?php 
-include("includes/sidebar.php");?>
-<?php
+include("includes/sidebar.php");
+$yazi_id=$_GET['yazi_id'];
+$yazilar=$db->prepare("SELECT * FROM yazilar WHERE yazi_id=? ");
+$yazilar->execute(array($yazi_id));
+$yazicek=$yazilar->fetch(PDO::FETCH_ASSOC); ?>
 
-$settings=$db->prepare("SELECT * FROM ayarlar ");
-$settings->execute();
-$check_settings=$settings->fetch(PDO::FETCH_ASSOC); 
-
-?>
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -36,18 +34,18 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Ayarlar</li>
-              <li class="breadcrumb-item active">Logo & Favicon</li>
+              <li class="breadcrumb-item active">Genel Ayarlar</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
       <?php 
 
-      if (isset($_GET['update'])){
-                  
-        $update=$_GET['update'];
-            
-            if($update=="empty"){ ?>
+    if (isset($_GET['update'])){
+                
+      $update=$_GET['update'];
+      
+            if($sonuc=="update"){ ?>
         <div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <h5><i class="icon fas fa-exclamation-triangle"></i> Dikkat!</h5>
@@ -86,9 +84,9 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
     <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">
-                <a href="genelayarlar.php" class="float-left">
-                  <i class="nav-icon fas fa-smile"></i>
-                  Logo Düzenle
+                <a href="genelayarlar.php" class="nav-link">
+                  <i class="nav-icon fas fa-edit fa-fw "></i>
+                  Yazı Düzenle
                 </a>
                 </h3>
               </div>
@@ -96,60 +94,55 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
 
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="process.php" method="post" enctype="multipart/form-data">
+              <form action="process.php?yazi_id=<?php echo $yazicek['yazi_id']; ?>" method="post" enctype="multipart/form-data" >
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Şuanki Logo</label><br>
-                       <img src="../blog/images/<?php echo $check_settings['site_logo'];?>" alt="Sedanur Çevik" class="img-responsive" width="5%" height="5%">
+                        <label>Yazı Fotoğraf</label><br>
+                       <img src="../blog/images/<?php echo $yazicek['yazi_foto'];?>" alt="<?php echo $yazicek['yazi_title'];?>" class="img-responsive" width="65%" height="55%">
                     </div>
                     <div class="form-group">
-                        <label>Site Logo</label>
-                        <input type="file" class="form-control" value="<?php echo $check_settings['site_logo'];?>"name="site_logo" >
+                        <label>Fotoğraf Yükle</label><br>
+                        <input type="file" class="form-control" name="yazi_foto">
                     </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit"  name="logo_düzenle" class="btn btn-primary">Güncelle</button>
-                </div>
+                    <div class="form-group">
+                        <label>Yazı Başlık</label>
+                        <input type="text" class="form-control" name="yazi_title" value="<?php echo $yazicek['yazi_title'];?>">
+                    </div>
+                    <div class="form-group"> 
+                      <label for="kategoriler">Yazı Kategori</label>
+                      <select id="kategoriler" name="yazi_kategori" class="form-control">
+                      <?php 
+                      $kategoriler =$db->prepare("SELECT * FROM kategoriler");
+                      $kategoriler->execute();
+                      $kategoricek=$kategoriler->fetchAll(PDO::FETCH_ASSOC);
+                      foreach($kategoricek as $row){
+                      ?>
+                        <option value="<?php echo $row['kategori_id'];?>" <?php echo $yazicek['yazi_kategori_id']==$row['kategori_id'] ? "selected" : null ; ?>><?php echo $row['kategori_title'];?></option>
+                      <?php } ?>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Yazı Okunma Sayısı</label>
+                        <input type="text" class="form-control"  name="yazi_okunma" value="<?php echo $yazicek['yazi_okunma'];?>" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Yazı Tarih</label>
+                        <input type="text" class="form-control"  name="yazi_tarih" value="<?php echo $yazicek['yazi_tarih'];?>" disabled>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="form-group">
+                      <label>Yazı İçerik</label>
+                      <textarea id="summernote" name="yazi_icerik">
+                      <?php echo $yazicek['yazi_icerik'];?>
+                      </textarea>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit"  name="yazi_duzenle" class="btn btn-primary">Güncelle</button>
+                    </div>
               </form>
-            </div>
-            
+      </div>
             <!-- /.card -->
-
-    </section>
-    <section class="content">
-    <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">
-                <a href="genelayarlar.php" class="float-left">
-                  <i class="nav-icon fas fa-smile"></i>
-                  Favicon Düzenle
-                </a>
-                </h3>
-              </div>
-              
-
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form action="process.php" method="post" enctype="multipart/form-data">
-                <div class="card-body">
-                    <div class="form-group">
-                        <label>Şuanki Favicon</label><br>
-                       <img src="../blog/images/<?php echo $check_settings['site_favicon'];?>" alt="Sedanur Çevik" class="img-responsive" width="5%" height="5%">
-                    </div>
-                    <div class="form-group">
-                        <label>Site Favicon</label>
-                        <input type="file" class="form-control" value="<?php echo $check_settings['site_favicon'];?>"name="site_favicon" >
-                    </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit"  name="favicon_düzenle" class="btn btn-primary">Güncelle</button>
-                </div>
-              </form>
-            </div>
-            
-            <!-- /.card -->
-
-    </section>
+    </section> 
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

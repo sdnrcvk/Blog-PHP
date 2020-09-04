@@ -9,17 +9,14 @@ else{
 header("location: login.php");
 }
 
+include("includes/header.php");
+include("includes/sidebar.php"); 
 
-include("includes/header.php"); ?>
-<?php 
-include("includes/sidebar.php");?>
-<?php
+$kategori_id=$_GET['kategori_id'];
 
-$settings=$db->prepare("SELECT * FROM ayarlar ");
-$settings->execute();
-$check_settings=$settings->fetch(PDO::FETCH_ASSOC); 
-
-?>
+$kategori=$db->prepare("SELECT * FROM kategoriler WHERE kategori_id=? ");
+$kategori->execute(array($kategori_id));
+$kategoricek=$kategori->fetch(PDO::FETCH_ASSOC); ?>
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -29,24 +26,24 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Ayarlar</h1>
+            <h1>Kategoriler</h1>
           </div>
           
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Ayarlar</li>
-              <li class="breadcrumb-item active">Sosyal Medya</li>
+              <li class="breadcrumb-item active">Kategoriler</li>
+              <li class="breadcrumb-item active">Kategori Düzenle</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
       <?php 
 
-          if (isset($_GET['update'])){
-                      
-            $update=$_GET['update'];
-            
+      if (isset($_GET['update'])){
+                  
+        $update=$_GET['update'];
+        
             if($update=="empty"){ ?>
         <div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -74,9 +71,9 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
     <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">
-                <a href="socialmedia.php" class="float-left">
-                  <i class="nav-icon fab fa-slack"></i>
-                  Sosyal Medya Link Ayarları
+                <a href="categories.php" class="nav-link">
+                  <i class="nav-icon fas fa-edit "></i>
+                  Kategori Düzenle
                 </a>
                 </h3>
               </div>
@@ -84,37 +81,28 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
 
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="process.php" method="post">
+              <form action="process.php?kategori_id=<?php echo $kategoricek['kategori_id']; ?>" method="post" enctype="multipart/form-data" >
                 <div class="card-body">
-                    <a class="btn btn-block btn-social btn-twitter">
-                    <label>Twitter</label>
-                        <i class="fab fa-twitter"></i><input type="text" value="<?php echo $check_settings['site_twitter'];?>" name="site_twitter"  class="form-control">
-                    </a>
-                    <a class="btn btn-block btn-social btn-linkedin">
-                    <label>Linkedin</label>
-                        <i class="fab fa-linkedin"></i><input type="text" value="<?php echo $check_settings['site_linkedin'];?>" name="site_linkedin"  class="form-control">
-                    </a>
-                    <a class="btn btn-block btn-social btn-instagram">
-                    <label>İnstagram</label>
-                        <i class="fab fa-instagram"></i><input type="text" value="<?php echo $check_settings['site_instagram'];?>" name="site_instagram"  class="form-control">
-                    </a>
-                    <a class="btn btn-block btn-social btn-github">
-                    <label>Github</label>
-                        <i class="fab fa-github"></i><input type="text" value="<?php echo $check_settings['site_github'];?>" name="site_github"  class="form-control">
-                    </a>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit"  name="sosyal_medya" class="btn btn-primary">Güncelle</button>
-                </div>
+                    <div class="form-group">
+                        <label>Kategori Adı</label>
+                        <input type="text" class="form-control" name="kategori_title" value="<?php echo $kategoricek['kategori_title']; ?>">
+                    </div>
+                    
+                    <div class="card-footer">
+                      <button type="submit"  name="kategori_duzenle" class="btn btn-primary">Güncelle</button>
+                    </div>
               </form>
-            </div>
+      </div>
             <!-- /.card -->
-
-    </section>
+    </section> 
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
+
+
+
 
 
 <?php
