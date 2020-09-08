@@ -365,4 +365,21 @@ if(isset($cevapsil_id)){
         header("location: answers.php?update=no");
     }
 } 
+
+//deleting answers
+$mesajsil_id=$_GET['mesajsil_id'];
+
+if(isset($mesajsil_id)){
+    
+    $mesaj=$db->prepare("DELETE FROM mesajlar WHERE mesaj_id=?");
+    $delete=$mesaj->execute(array($mesajsil_id));
+
+    if($delete){
+        header("location: messages.php?update=yes");
+    }
+    else{
+        header("location: messages.php?update=no");
+    }
+} 
+
 ?>

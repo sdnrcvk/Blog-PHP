@@ -23,13 +23,13 @@ include("includes/sidebar.php");?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-          <h1>Yorumlar</h1>
+          <h1>Cevaplar</h1>
           </div>
           
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Yorumlar</li>
+              <li class="breadcrumb-item"><a href="index.php">Anasayfa</a></li>
+              <li class="breadcrumb-item active">Cevaplar</li>
             </ol>
           </div>
         </div>
@@ -71,10 +71,9 @@ include("includes/sidebar.php");?>
             <div class="card card-primary">
               <div class="card-header">
                 <a href="comments.php" class="float-left">
-                  <i class="nav-icon fas fa-comments"></i>
-                  Yorumlar
+                  <i class="nav-icon fas fa-check"></i>
+                  Cevaplar
                 </a>
-                <a href="add-categories.php" class="btn btn-primary btn-sm float-right"><i class="nav-icon fa fa-plus"></i> Kategori Ekle</a>
               </div>
               <!-- /.card-header -->
         <div class="card-body">
@@ -127,11 +126,10 @@ include("includes/sidebar.php");?>
                 <a href="process.php?cevapsil_id=<?php echo $row['yorum_id'];?>"><button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Sil</button>
             </td>
             </tr>
-    <?php }
-        }else{
-          echo "Cevap Bulunamadı...";
-          }
-        ?>
+            <?php }
+                }else{
+                  echo "<td colspan='5' style='text-align:center;'> Henüz verilmiş bir cevap yok...</td>";
+                } ?>
                   </tbody>
                 </table>
                 <div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div>

@@ -28,7 +28,7 @@ include("includes/sidebar.php");?>
           
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php">Anasayfa</a></li>
               <li class="breadcrumb-item active">Yazılar</li>
             </ol>
           </div>
@@ -130,7 +130,9 @@ include("includes/sidebar.php");?>
                         <a href="process.php?kategorisil_id=<?php echo $row['kategori_id'];?>"><button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Sil</button>
                     </td>
                   </tr>
-                <?php }
+                  <?php }
+                }else{
+                  echo "<td colspan='5' style='text-align:center;'> Henüz oluşturulmuş bir kategori yok...</td>";
                 } ?>
                   </tbody>
                 </table>
