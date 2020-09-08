@@ -28,9 +28,9 @@ if($_POST){
             $mail->IsHTML(true);
             $mail->SetLanguage("tr","PHPMailer/language");
             $mail->CharSet  ="UTF-8";
-            $mail->Username = "softwaredeveloper.en@gmail.com"; // Mail adresimizin kullanicı adi
-            $mail->Password = "codingW90"; // Mail adresimizin sifresi
-            $mail->SetFrom("softwaredeveloper.en@gmail.com",$gonderen); // Mail attigimizda gorulecek ismimiz
+            $mail->Username = ""; // Mail adresimizin kullanicı adi
+            $mail->Password = ""; // Mail adresimizin sifresi
+            $mail->SetFrom("@gmail.com",$gonderen); // Mail attigimizda gorulecek ismimiz
             $mail->AddAddress($gonderilenmail); // Maili gonderecegimiz kisi yani alici
             $mail->Subject = "Gmail SMTP Örneği"; // Konu basligi
             $mail->Body ="<p>".$mesaj."</p>";// Mailin icerigi
