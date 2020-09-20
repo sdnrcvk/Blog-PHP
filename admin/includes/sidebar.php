@@ -1,7 +1,15 @@
+  <?php
+  $user_id=1;
+
+  $admin=$db->prepare("SELECT * FROM kullanıcılar WHERE user_id=? ");
+  $admin->execute(array($user_id));
+  $admincek=$admin->fetch(PDO::FETCH_ASSOC); ?>
+  
+  
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="index.php" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Admin Paneli</span>
     </a>
@@ -11,10 +19,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="dist/img/avatar3.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?=$username?></a>
+          <a href="index.php" class="d-block"><?php echo $admincek['full_name'];?></a>
         </div>
       </div>
 
@@ -50,7 +58,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="socialmedia.php" class="nav-link">
+                <a href="sosyal_medya.php" class="nav-link">
                   <i class="nav-icon fab fa-slack"></i>
                   <p>Sosyal Medya</p>
                 </a>
@@ -64,7 +72,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="articles.php" class="nav-link">
+            <a href="yazilar.php" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Yazılar
@@ -72,7 +80,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="categories.php" class="nav-link">
+            <a href="kategoriler.php" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>
               <p>
                 Kategoriler
@@ -89,13 +97,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="comments.php" class="nav-link">
+                <a href="yorumlar.php" class="nav-link">
                   <i class="nav-icon fas fa-comment-dots"></i>
                   <p>Yorumları Listele</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="answers.php" class="nav-link">
+                <a href="cevaplar.php" class="nav-link">
                   <i class="nav-icon fas fa-check"></i>
                   <p>Cevapları Listele</p>
                 </a>
@@ -108,7 +116,7 @@
             $mesajlar->fetchAll(PDO::FETCH_ASSOC); 
             $say=$mesajlar->rowCount();
             ?>
-            <a href="messages.php" class="nav-link">
+            <a href="mesajlar.php" class="nav-link">
               <i class="nav-icon fas fa-envelope"></i>
               <p>
                 Mesajlar

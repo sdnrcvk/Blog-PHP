@@ -6,7 +6,7 @@ if($_SESSION['session']){
   $username=$_SESSION['fullname'] ;
 }
 else{
-header("location: login.php");
+header("location: giris.php");
 }
 
 include("includes/header.php");
@@ -24,7 +24,7 @@ include("includes/sidebar.php");
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
               <li class="breadcrumb-item active">Yönetim Paneli</li>
             </ol>
           </div><!-- /.col -->
@@ -54,7 +54,7 @@ include("includes/sidebar.php");
               <div class="icon">
                 <i class="fa fa-comments"></i>
               </div>
-              <a href="comments.php" class="small-box-footer">Tümünü Gör <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="yorumlar.php" class="small-box-footer">Tümünü Gör <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -74,7 +74,7 @@ include("includes/sidebar.php");
               <div class="icon">
                 <i class="fa fa-list"></i>
               </div>
-              <a href="articles.php" class="small-box-footer">Tümünü Gör <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="yazilar.php" class="small-box-footer">Tümünü Gör <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -94,7 +94,7 @@ include("includes/sidebar.php");
               <div class="icon">
                 <i class="fa fa-tags"></i>
               </div>
-              <a href="categories.php" class="small-box-footer">Tümünü Gör <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="kategoriler.php" class="small-box-footer">Tümünü Gör <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -114,7 +114,7 @@ include("includes/sidebar.php");
               <div class="icon">
                 <i class="fa fa-envelope"></i>
               </div>
-              <a href="messages.php" class="small-box-footer">Tümünü Gör <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="mesajlar.php" class="small-box-footer">Tümünü Gör <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

@@ -18,8 +18,8 @@ $ayarcek=$ayarlar->fetch(PDO::FETCH_ASSOC);
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
    <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
@@ -71,7 +71,7 @@ $ayarcek=$ayarlar->fetch(PDO::FETCH_ASSOC);
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="profil.php" class="dropdown-item">
             <i class="fas fa-user mr-2"></i>User Profile
           </a>
           <div class="dropdown-divider"></div>
@@ -79,7 +79,7 @@ $ayarcek=$ayarlar->fetch(PDO::FETCH_ASSOC);
             <i class="fas fa-cogs mr-2"></i>Settings
           </a>
           <div class="dropdown-divider"></div>
-          <a href="logout.php" class="dropdown-item">
+          <a href="cikis.php" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i>Logout
           </a>
       </li>

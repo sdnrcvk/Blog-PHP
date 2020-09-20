@@ -9,17 +9,14 @@ else{
 header("location: giris.php");
 }
 
+include("includes/header.php");
+include("includes/sidebar.php"); 
 
-include("includes/header.php"); ?>
-<?php 
-include("includes/sidebar.php");?>
-<?php
+$yorum_id=$_GET['yorum_id'];
 
-$settings=$db->prepare("SELECT * FROM ayarlar ");
-$settings->execute();
-$check_settings=$settings->fetch(PDO::FETCH_ASSOC); 
-
-?>
+$yorumlar=$db->prepare("SELECT * FROM yorumlar WHERE yorum_id=? ");
+$yorumlar->execute(array($yorum_id));
+$yorumcek=$yorumlar->fetch(PDO::FETCH_ASSOC); ?>
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -29,24 +26,24 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Ayarlar</h1>
+            <h1>Yorumlar</h1>
           </div>
           
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Anasayfa</a></li>
-              <li class="breadcrumb-item active">Ayarlar</li>
-              <li class="breadcrumb-item active">Genel Ayarlar</li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Yorumlar</li>
+              <li class="breadcrumb-item active">Yorum Cevapla</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
       <?php 
 
-        if (isset($_GET['update'])){
-                    
-          $update=$_GET['update'];
-
+      if (isset($_GET['update'])){
+                  
+        $update=$_GET['update'];
+        
             if($update=="empty"){ ?>
         <div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -74,9 +71,9 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
     <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">
-                <a href="genelayarlar.php" class="float-left">
-                  <i class="nav-icon fas fa-cog fa-fw "></i>
-                  Genel Ayarlar
+                <a href="kategoriler.php" class="nav-link">
+                  <i class="nav-icon fas fa-edit "></i>
+                  Yorum Cevapla
                 </a>
                 </h3>
               </div>
@@ -84,42 +81,40 @@ $check_settings=$settings->fetch(PDO::FETCH_ASSOC);
 
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="islem.php" method="post">
+              <form action="islem.php?yorum_id=<?php echo $yorum_id; ?>" method="post" >
+
+              <input type="hidden" name="yorum_yapan" value="Admin">
+              <input type="hidden" name="yorum_mail" value="sdnrcvk@gmail.com">
+              <input type="hidden" name="yorum_website" value="kodlayanmuhendis.com">
+              <input type="hidden" name="yorum_yazi_id" value="<?php echo $yorumcek['yorum_yazi_id']; ?>">
+
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Site Url</label>
-                        <input type="text" class="form-control" name="site_url" value="<?php echo $check_settings['site_url'];?>">
+                        <label> Ekleyen Adı</label>
+                        <input type="text" class="form-control" value="<?php echo $yorumcek['yorum_yapan']; ?>">
                     </div>
                     <div class="form-group">
-                        <label>Site Title</label>
-                        <input type="text" class="form-control"  name="site_title" value="<?php echo $check_settings['site_title'];?>">
+                        <label> Tarih</label>
+                        <input type="text" class="form-control"value="<?php echo $yorumcek['yorum_tarih'];?> " disabled>
                     </div>
                     <div class="form-group">
-                        <label>Site Description</label>
-                        <input type="text" class="form-control"  name="site_desc" value="<?php echo $check_settings['site_desc'];?>">
+                        <label> Yapılan Yorum</label>
+                        <textarea class="form-control" cols="5" rows="8"disabled><?php echo $yorumcek['yorum_icerik'];?></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Site Keywords</label>
-                        <input type="text" class="form-control"  name="site_keyw" value="<?php echo $check_settings['site_keyw'];?>" >
+                        <label> Cevapla </label>
+                        <textarea class="form-control" cols="5" rows="8" name="yorum_icerik" placeholder="Buradan cevaplayabilirsiniz..."></textarea>
                     </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit"  name="genel_ayarlar" class="btn btn-primary">Güncelle</button>
-                </div>
+                    <div class="card-footer">
+                      <button type="submit"  name="yorum_cevapla" class="btn btn-primary">Cevapla</button>
+                    </div>
               </form>
-            </div>
+      </div>
             <!-- /.card -->
-
-    </section>
+    </section> 
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-
-
-
-
 
 
 <?php

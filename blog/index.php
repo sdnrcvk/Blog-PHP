@@ -56,24 +56,20 @@ if(isset($_POST['send_message'])){
 			<div class="col-md-6 col-lg-6 pl-md-5 py-5">
 				<div class="row justify-content-start pb-3">
 				<div class="col-md-12 heading-section ftco-animate">
-				<h1 class="big">About</h1>
-				<h2 class="mb-4">About Me</h2>
-				<ul class="about-info mt-4 px-md-0 px-2">
-					<li class="d-flex"><span>Name:</span> <span>Sedanur Çevik</span></li>
-					<li class="d-flex"><span>Date of birth:</span> <span>April 18, 1999</span></li>
-					<li class="d-flex"><span>Address:</span> <span>Tokat,Turkey</span></li>
-					<li class="d-flex"><span>Email:</span> <span>sdnrcvk@gmail.com</span></li>
-					<li class="d-flex"><span>Phone: </span> <span>0545 270 65 69</span></li>
-				</ul>
+				<h1 class="big">Hakkımda</h1>
+				<h2 class="mb-4">Benim Hakkımda</h2>
+				<p style="color:black;">Merhaba.Ben Sedanur ÇEVİK.18 Nisan 1999'da Tokat'ta doğdum.Karabük Üniversitesi bilgisayar mühendisliği bölümünde okuyorum.
+			Araştırmaya meraklı, öğrenmeyi seven, kendini geliştirmeye odaklı birisiyim.Hayatım boyunca elimden gelenin en iyisini yapmaya çalıştım ve hâlâ hayallerim 
+			için çabalamaya devam ediyorum.Udemy,btk,coursera gibi sitelerde kurslar izleyerek kendimi web ve mobil alanında ilerletiyorum.İlerde mesleğimi severek yapmanın ve insanlığa faydalı olmanın hayalini kuruyorum. </P>
 				</div>
 			</div>
 			<div class="counter-wrap ftco-animate d-flex mt-md-3">
 				<div class="text">
 					<p class="mb-4">
-						<span class="number" data-number="0">0</span>
-						<span>Project complete</span>
+						<span class="number" data-number="0">1</span>
+						<span>Tamamlanan projeler</span>
 					</p>
-					<p><a href="#" class="btn btn-primary py-3 px-3">Download CV</a></p>
+					<p><a href="#" class="btn btn-primary py-3 px-3">CV indir</a></p>
 				</div>
 			</div>
 		</div>
@@ -108,27 +104,27 @@ if(isset($_POST['send_message'])){
 			<div class="col-md-3">
 				<nav id="navi">
 					<ul>
-						<li><a href="#page-1">Education</a></li>
-						<li><a href="#page-3">Skills</a></li>
+						<li><a href="#page-1">Eğitim</a></li>
+						<li><a href="#page-3">Beceriler</a></li>
 					</ul>
 				</nav>
 			</div>
 			<div class="col-md-9">
 				<div id="page-1" class= "page one">
-					<h2 class="heading">Education</h2>
+					<h2 class="heading">Eğitim</h2>
 					<div class="resume-wrap d-flex ftco-animate">
 						<div class="icon d-flex align-items-center justify-content-center">
 							<span class="flaticon-ideas"></span>
 						</div>
 						<div class="text pl-3">
-							<span class="date">2018-continues</span>
-							<h2>Computer Engineering</h2>
-							<span class="position">Karabük University</span>
+							<span class="date">2018-devam ediyor</span>
+							<h2>Bilgisayar Mühendisliği</h2>
+							<span class="position">Karabük Üniversitesi</span>
 						</div>
 					</div>
 
 				<div id="page-3" class= "page three">
-					<h2 class="heading">Skills</h2>
+					<h2 class="heading">Beceriler</h2>
 					<div class="row progress-circle mb-5">
 						<div class="col-lg-4 mb-4">
 							<div class="bg-white rounded-lg shadow p-4">
@@ -261,8 +257,8 @@ if(isset($_POST['send_message'])){
     	<div class="container-fluid px-md-5">
     		<div class="row justify-content-center py-5 mt-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Services</h1>
-            <h2 class="mb-4">Services</h2>
+          	<h1 class="big big-2">Hizmetler</h1>
+            <h2 class="mb-4">Hizmetler</h2>
           </div>
         </div>
     		<div class="row">
@@ -272,7 +268,7 @@ if(isset($_POST['send_message'])){
 								<i class="flaticon-analysis"></i>
 							</span>
 							<div class="desc">
-								<h3 class="mb-5">Web Design</h3>
+								<h3 class="mb-5">Web Tasarım</h3>
 							</div>
 						</a>
 					</div>
@@ -293,7 +289,7 @@ if(isset($_POST['send_message'])){
 								<i class="flaticon-ideas"></i>
 							</span>
 							<div class="desc">
-								<h3 class="mb-5">Web Developer</h3>
+								<h3 class="mb-5">Web Geliştirme</h3>
 							</div>
 						</a>
 					</div>
@@ -304,7 +300,7 @@ if(isset($_POST['send_message'])){
 								<i class="flaticon-innovation"></i>
 							</span>
 							<div class="desc">
-								<h3 class="mb-5">App Developing</h3>
+								<h3 class="mb-5">Uygulama Geliştirme</h3>
 							</div>
 						</a>
 					</div>
@@ -339,68 +335,20 @@ if(isset($_POST['send_message'])){
     	<div class="container-fluid px-md-0">
     		<div class="row no-gutters justify-content-center pb-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Projects</h1>
-			<h2 class="mb-4">Our Projects</h2>
-			<p style="font-size:20px; color: #000000;">___________________________loading projects___________________________</p>
-		  <!--</div>
+          	<h1 class="big big-2">Projeler</h1>
+			<h2 class="mb-4">Projelerim</h2>
+		  </div>
         </div>
-    		<div class="row no-gutters">
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-1.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-2.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-3.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-4.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-5.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-6.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-    		</div>-->
+		<div class="row no-gutters" style="margin-left:30px;">
+			<div class="col-md-4">
+				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/blog.png);">
+					<div class="overlay"></div>
+					<div class="text text-center p-4">
+						<h3><a href="#">Branding &amp; Illustration Design</a></h3>
+						<span>Web Tasarım</span>
+					</div>
+				</div>
+			</div>
     	</div>
     </section>
 
@@ -443,48 +391,12 @@ if(isset($_POST['send_message'])){
       </div>
     </section> -->
 
-
-<section class="ftco-section" id="blog-section">
-	<div class="container">
-		<div class="row justify-content-center mb-5 pb-5">
-			<div class="col-md-3 heading-section text-center ftco-animate">
-				<h1 class="big big-2">Blog</h1>
-				<h2 class="mb-4">Our Blog</h2>
-			</div>
-		</div>
-		<div class="row d-flex">
-			<?php
-			$articles=$db->prepare("SELECT * FROM yazilar INNER JOIN kategoriler ON kategoriler.kategori_id=yazilar.yazi_kategori_id ORDER BY yazi_id DESC LIMIT 3");
-			$articles->execute();
-			$check_articles=$articles->fetchAll(PDO::FETCH_ASSOC);
-			foreach($check_articles as $row){ ?>
-			<div class="col-md-4 d-flex ftco-animate">      
-				<div class="blog-entry justify-content-end">
-					<a href="single.php?yazi_id=<?php echo $row['yazi_id'];?>&kategori_id=<?php echo $row['kategori_id'];?>" title="<?php echo $row['yazi_title'];?>" class="block-20" alt="<?php echo $row['yazi_title'];?>" style="background-image: url('images/<?php echo $row['yazi_foto'];?>');"></a>
-					<div class="text mt-3 float-right d-block">
-						<h3 class="heading"><a href="single.php" title="<?php echo $row['yazi_title'];?>"><?php echo $row['yazi_title'];?></a></h3>
-						<div class="d-flex align-items-center mb-3 meta">
-							<p class="mb-0">
-							<a href="list_categories.php?kategori_id=<?php echo $row['kategori_id'];?>" class="mr-2" title="<?php echo $row['kategori_title'];?>"><?php echo $row['kategori_title'];?></a>
-							<a href="#" class="meta-eye"><span class="icon-eye">&nbsp;</span><?php echo $row['yazi_okunma'];?></a>
-							<a href="#" class="meta-chat">&nbsp;<span class="icon-chat"></span> 3</a><br>
-							<a href="#" class="mr-2" title="<?php echo $row['yazi_yazan'];?>"><?php echo $row['yazi_yazan'];?></a><br>
-							<span class="mr-2"><?php echo $row['yazi_tarih'];?></span>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div> <?php } ?>
-		</div>
-	</div>
-</section>
-
 <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
 	<div class="container">
 	<div class="row justify-content-center mb-5 pb-3">
 		<div class="col-md-7 heading-section text-center ftco-animate">
-		<h1 class="big big-2">Contact</h1>
-		<h2 class="mb-4">Contact Me</h2>
+		<h1 class="big big-2">İletişim</h1>
+		<h2 class="mb-4">İletişim</h2>
 		</div>
 	</div>
 
@@ -495,7 +407,8 @@ if(isset($_POST['send_message'])){
 				<span class="icon-map-signs"></span>
 			</div>
 			<div>
-				<h3 class="mb-4">Address</h3>
+				<h3 class="mb-4">Adres</h3>
+				<p>Tokat/Merkez</p>
 				</div>
 			</div>
 		</div>
@@ -505,7 +418,8 @@ if(isset($_POST['send_message'])){
 				<span class="icon-phone2"></span>
 			</div>
 			<div>
-				<h3 class="mb-4">Contact Number</h3>
+				<h3 class="mb-4">İletişim Numarası</h3>
+				<p>0545 270 65 69</p>
 			</div>
 			</div>
 		</div>
@@ -515,7 +429,7 @@ if(isset($_POST['send_message'])){
 				<span class="icon-paper-plane"></span>
 			</div>
 			<div>
-				<h3 class="mb-4">Email Address</h3>
+				<h3 class="mb-4">E-mail</h3>
 				<p><a href="mailto:sdnrcvk@gmail.com">sdnrcvk@gmail.com</a></p>
 				</div>
 			</div>
@@ -527,7 +441,7 @@ if(isset($_POST['send_message'])){
 			</div>
 			<div>
 				<h3 class="mb-4">Website</h3>
-				<p><a href="#"></a></p>
+				<p><a href="kodlayanmuhendis.com"></a>kodlayanmuhendis.com</p>
 			</div>
 			</div>
 		</div>

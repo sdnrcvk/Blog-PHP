@@ -1,0 +1,11 @@
+# Kodlarımızı aktif etmek için kullanılır.
+
+RewriteEngine On
+
+# Php uzantısını kaldırma kodları
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+# RewriteRule ^yazi/([0-9a-zA-Z-_]+)$ blog.php?yazi_seolink=$1 [NC,NE,L]

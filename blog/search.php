@@ -23,12 +23,12 @@ $search=strip_tags($_GET['search']);
 			foreach($check_articles as $row){ ?>
 			<div class="col-md-4 d-flex ftco-animate">      
 				<div class="blog-entry justify-content-end">
-					<a href="single.php?yazi_id=<?php echo $row['yazi_id'];?>&kategori_id=<?php echo $row['kategori_id'];?>" title="<?php echo $row['yazi_title'];?>" class="block-20" alt="<?php echo $row['yazi_title'];?>" style="background-image: url('images/<?php echo $row['yazi_foto'];?>');"></a>
+					<a href="single?yazi_id=<?php echo $row['yazi_id'];?>&kategori_id=<?php echo $row['kategori_id'];?>" title="<?php echo $row['yazi_title'];?>" class="block-20" alt="<?php echo $row['yazi_title'];?>" style="background-image: url('images/<?php echo $row['yazi_foto'];?>');"></a>
 					<div class="text mt-3 float-right d-block">
 						<h3 class="heading"><a href="single.php" title="<?php echo $row['yazi_title'];?>"><?php echo $row['yazi_title'];?></a></h3>
 						<div class="d-flex align-items-center mb-3 meta">
 							<p class="mb-0">
-							<a href="list_categories.php?kategori_id=<?php echo $row['kategori_id'];?>" class="mr-2" title="<?php echo $row['kategori_title'];?>"><?php echo $row['kategori_title'];?></a>
+							<a href="list_categories?kategori_id=<?php echo $row['kategori_id'];?>" class="mr-2" title="<?php echo $row['kategori_title'];?>"><?php echo $row['kategori_title'];?></a>
 							<a href="#" class="meta-eye"><span class="icon-eye">&nbsp;</span><?php echo $row['yazi_okunma'];?></a>
 							<a href="#" class="meta-chat">&nbsp;<span class="icon-chat"></span> 3</a><br>
 							<a href="#" class="mr-2" title="<?php echo $row['yazi_yazan'];?>"><?php echo $row['yazi_yazan'];?></a><br>
