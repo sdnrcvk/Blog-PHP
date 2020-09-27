@@ -8,11 +8,14 @@ if(isset($_POST['send_message'])){
         if(!empty($_POST['email'])){
             $email=$_POST['email'];
             if(!empty($_POST['message'])){
-                $subject=$_POST['subject'];
-                $message=$_POST['message'];
+			$subject=$_POST['subject'];
+			$message=$_POST['message'];
 
-                $s_message=$db->prepare("INSERT INTO mesajlar (mesaj_gonderenisim, mesaj_gonderenmail, mesaj_konu, mesaj_aciklama) VALUES (?,?,?,?)");
-                $s_message=$s_message->execute(array($name,$email,$subject,$message));
+			$s_message=$db->prepare("INSERT INTO mesajlar (mesaj_gonderenisim, mesaj_gonderenmail, mesaj_konu, mesaj_aciklama) VALUES (?,?,?,?)");
+			$s_message=$s_message->execute(array($name,$email,$subject,$message));
+			if($s_message){
+				header("location: index.php?durum=yes");
+			}
           }
       }
   }
@@ -66,7 +69,7 @@ if(isset($_POST['send_message'])){
 			<div class="counter-wrap ftco-animate d-flex mt-md-3">
 				<div class="text">
 					<p class="mb-4">
-						<span class="number" data-number="0">1</span>
+						<span class="number" data-number="1">1</span>
 						<span>Tamamlanan projeler</span>
 					</p>
 					<p><a href="#" class="btn btn-primary py-3 px-3">CV indir</a></p>
@@ -446,7 +449,20 @@ if(isset($_POST['send_message'])){
 			</div>
 		</div>
 	</div>
+	<?php 
 
+if (isset($_GET['durum'])){
+			
+  $durum=$_GET['durum'];
+
+	if($durum=="yes"){ ?>
+<div class="alert alert-success alert-dismissible">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<i class="icon fas fa-check"></i>
+   Mesajınız başarıyla gönderilmiştir!
+</div>
+<?php }
+} ?>
 	<div class="row no-gutters block-9">
 		<div class="col-md-6 order-md-last d-flex">
 		<form action="#" method="post" class="bg-light p-4 p-md-5 contact-form">
@@ -454,7 +470,7 @@ if(isset($_POST['send_message'])){
 			<input type="text" class="form-control"  name="name" placeholder="Your Name" required>
 			</div>
 			<div class="form-group">
-			<input type="text" class="form-control" name="email" placeholder="Your Email" required>
+			<input type="email" class="form-control" name="email" placeholder="Your Email" required>
 			</div>
 			<div class="form-group">
 			<input type="text" class="form-control" name ="subject" placeholder="Subject" >

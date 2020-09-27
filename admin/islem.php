@@ -320,7 +320,7 @@ if(isset($_POST['yorum_cevapla'])){
     $yorum_id=$_GET['yorum_id'];
 
     if(!$yorum_icerik || !$yorum_yapan || !$yorum_mail || !$yorum_website){
-    header("location: cevaplar.php?sonuc=empty");
+    header("location: yorumlar.php?sonuc=empty");
     }
     else{
     $yorumlar=$db->prepare("INSERT INTO yorumlar (yorum_yapan,yorum_mail,yorum_website,yorum_yazi_id,yorum_icerik,yorum_durum,yorum_ust) VALUES (?,?,?,?,?,?,?) ");
@@ -328,10 +328,10 @@ if(isset($_POST['yorum_cevapla'])){
 
         if($insert){
             $db->query("UPDATE yorumlar SET yorum_cevap=1 WHERE yorum_id=".$yorum_id);
-            header("location: cevaplar.php?update=yes");
+            header("location: yorumlar.php?update=yes");
         }
         else{
-            header("location: cevaplar.php?update=no");
+            header("location: yorumlar.php?update=no");
         }
     }
 }
@@ -368,7 +368,7 @@ if(isset($cevapsil_id)){
     }
 } 
 
-//deleting answers
+//deleting messages
 $mesajsil_id=$_GET['mesajsil_id'];
 
 if(isset($mesajsil_id)){

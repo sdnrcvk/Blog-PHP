@@ -68,7 +68,20 @@ $hit->execute(array($yazi_id));
       <span><i class="icon-eye"></i>&nbsp;<?php echo $article['yazi_okunma'];?>&nbsp;</a></span>
     </p>
     </div>
-        
+    <?php
+    if (isset($_GET['durum'])){
+			
+      $durum=$_GET['durum'];
+    
+      if($durum=="yes"){ ?>
+    <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <i class="icon fas fa-check"></i>
+       Yorumunuz başarıyla yapılmıştır!
+    </div>
+    <?php }
+    } ?>
+    
 <div class="pt-5 mt-5">
 <?php
 

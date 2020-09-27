@@ -1,5 +1,5 @@
   <?php
-  $user_id=1;
+  $user_id=8;
 
   $admin=$db->prepare("SELECT * FROM kullanıcılar WHERE user_id=? ");
   $admin->execute(array($user_id));

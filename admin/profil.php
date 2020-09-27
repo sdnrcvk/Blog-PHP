@@ -12,7 +12,7 @@ header("location: giris.php");
 include("includes/header.php");
 include("includes/sidebar.php"); 
 
-$user_id=1;
+$user_id=8;
 
 $admin=$db->prepare("SELECT * FROM kullanıcılar WHERE user_id=? ");
 $admin->execute(array($user_id));
